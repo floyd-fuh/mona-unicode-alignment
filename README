@@ -1,0 +1,8 @@
+This is code of a project I did back in 2013. It was a feature I implemented for unicode buffer overflows in mona.py, where you have to fill a buffer register because you encoded your shellcode with something like the ALPHA encoders. If I think back to that time, I implemented this heuristic because corelancoder said something like "You can't do that automatically, you have to write that manually".
+
+Back then mona.py wasn't on github. By now this is part of the mona.py of the corelan team that can be found on https://github.com/corelan/mona
+
+This code is here for further reference and if anybody ever wants to refactor the code of me found in mona.py
+
+Usually you do not want to use this code directly nowadays (although a non-mona.py standalone version is in this repository). You want to use https://github.com/corelan/mona
+

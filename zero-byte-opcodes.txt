@@ -1,0 +1,192 @@
+originals = [175, 217, 65, 189, 67, 118]
+
+Let's zero out the three non-bufferregisters
+
+mov bl,0
+mov bh,0
+mov cl,0
+mov ch,0
+mov dl,0
+mov dh,0
+mov eax,7F004100
+add dh,ah #dh=65 (0x41)
+mov eax,7F004300
+add dl,ah #dl=67 (0x43)
+mov eax,7F007600
+add ch,ah #ch=118 (0x76)
+mov eax,7F00af00
+add cl,ah #cl=175 (0xaf)
+mov eax,7F00bd00
+add bh,ah #bh=189 (0xbd)
+mov eax,7F00d900
+add bl,ah #bl=217 (0xd9)
+
+
+
+
+mov bl,0
+mov bh,0
+mov cl,0
+mov ch,0
+mov dl,0
+mov dh,0
+mov eax,0x7F004100
+add dh,ah
+add [ebp],ch
+mov eax,0x7F004300
+add dl,ah
+add [ebp],ch
+mov eax,0x7F007600
+add ch,ah
+add [ebp],ch
+mov eax,0x7F00af00
+add cl,ah
+add [ebp],ch
+mov eax,0x7F00bd00
+add bh,ah
+add [ebp],ch
+mov eax,0x7F00d900
+add bl,ah
+
+
+
+
+
+mov bl,0; mov bh,0; mov cl,0; mov ch,0; mov dl,0; mov dh,0; mov eax,0x7F004100; add dh,ah; add [ebp],ch; mov eax,0x7F004300; add dl,ah; add [ebp],ch; mov eax,0x7F007600; add ch,ah; add [ebp],ch; mov eax,0x7F00af00; add cl,ah; add [ebp],ch; mov eax,0x7F00bd00; add bh,ah; add [ebp],ch; mov eax,0x7F00d900; add bl,ah; 
+
+
+
+
+
+
+
+
+
+
+add [ebp],ch
+
+
+
+
+
+
+
+inc ebx
+add bl,bl #2
+add bl,bl #4
+add bl,bl #8
+add bl,bl #16
+add ch, bl #ch = 16
+add bl,bl #32
+add ch, bl #ch = 16+32
+add bl,bl #64
+inc bl #65
+add dh, bl #dh = 65
+inc bl #66
+inc bl #67
+add dl, bl #dl = 67
+
+
+
+
+NOPs:
+02CDFD96   2C 00            SUB AL,0
+02CDFDB6   34 00            XOR AL,0
+
+
+
+02CDFFA6   B0 00            mov AL,0
+02CDFFA6   B1 00            mov CL,0
+02CDFFA6   B2 00            mov DL,0
+02CDFFB2   B3 00            mov BL,0
+02CDFFA6   B4 00            mov AH,0
+02CDFFA6   B5 00            mov CH,0
+02CDFFA6   B6 00            mov DH,0
+02CDFFB2   B7 00            mov BH,0
+
+
+
+
+
+02CDFDE6   40               INC eax
+
+02CDFDEA   41               INC ECX
+
+02CDFDEE   42               INC EDX
+
+02CDFDF2   43               INC EBX
+
+02CDFDF6   44               INC ESP
+
+02CDFDFA   45               INC EBP
+
+02CDFDFE   46               INC ESI
+
+02CDFE02   47               INC EDI
+
+02CDFE06   48               DEC eax
+
+02CDFE0A   49               DEC ECX
+
+02CDFE0E   4A               DEC EDX
+
+02CDFE12   4B               DEC EBX
+
+02CDFE16   4C               DEC ESP
+
+02CDFE1A   4D               DEC EBP
+
+02CDFE1E   4E               DEC ESI
+
+02CDFE22   4F               DEC EDI
+
+02CDFE26   50               PUSH eax
+02CDFE27   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE2A   51               PUSH ECX
+02CDFE2B   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE2E   52               PUSH EDX
+02CDFE2F   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE32   53               PUSH EBX
+02CDFE33   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE36   54               PUSH ESP
+02CDFE37   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE3A   55               PUSH EBP
+02CDFE3B   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE3E   56               PUSH ESI
+02CDFE3F   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE42   57               PUSH EDI
+
+02CDFE46   58               POP eax
+02CDFE47   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE4A   59               POP ECX
+02CDFE4B   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE4E   5A               POP EDX
+02CDFE4F   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE52   5B               POP EBX
+02CDFE53   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE56   5C               POP ESP
+02CDFE57   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE5A   5D               POP EBP
+02CDFE5B   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE5E   5E               POP ESI
+02CDFE5F   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFE62   5F               POP EDI
+
+
+
+
+
+
+02CDFD6E   2200             AND AL,BYTE PTR DS:[eax]
+02CDFD8E   2A00             SUB AL,BYTE PTR DS:[eax]
+02CDFDAE   3200             XOR AL,BYTE PTR DS:[eax]
+
+
+02CDFFC6   B8 006D00B9      mov eax,B9006D00
+02CDFFCB   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFFCE   BA 006D00BB      mov EDX,BB006D00
+02CDFFD3   006D 00          ADD BYTE PTR SS:[EBP],CH
+02CDFFD6   BC 006D00BD      mov ESP,BD006D00
+02CDFFDB   006D 00          ADD BYTE PTR SS:[EBP],CH
+
+
