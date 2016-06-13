@@ -8,7 +8,7 @@
 # IT people: A byte that wraps around (0xFFFFFFFE + 0x00000002 = 0x00000001).
 # 
 # Let's first discuss a simple example with 8 inputs (a1..a8). We need the more general case, 
-# but so far 8 inputs is the maximum that makes sense. Altough it doesn't make any
+# but so far 8 inputs is the maximum that makes sense. Although it doesn't make any
 # difference. If we solve the general case with (let's say) 16 Inputs we can
 # simply set the not needed inputs's to zero and they will be ignored in the model.
 # The script runs in the general case and can operate in all cases!
